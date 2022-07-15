@@ -1,0 +1,378 @@
+{
+    // builtins
+    "debug.confirmOnExit": "always",
+    "debug.console.acceptSuggestionOnEnter": "off",
+    "debug.console.closeOnEnd": true,
+    "debug.console.collapseIdenticalLines": true,
+    "debug.console.fontFamily": "UnifontMono",
+    "debug.console.fontSize": 14,
+    "debug.console.wordWrap": true,
+    "debug.disassemblyView.showSourceCode": true,
+    "debug.onTaskErrors": "abort",
+    "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup",
+    "debug.terminal.clearBeforeReusing": true,
+
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingDelete": "always",
+    "editor.autoClosingOvertype": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.autoIndent": "full",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.codeLens": true,
+    "editor.colorDecorators": true,
+    "editor.comments.ignoreEmptyLines": false,
+    "editor.comments.insertSpace": true,
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.cursorWidth": 1,
+    "editor.cursorBlinking": "blink",
+    "editor.cursorStyle": "line",
+    "editor.cursorSmoothCaretAnimation": false,
+    "editor.detectIndentation": true,
+    "editor.emptySelectionClipboard": false,
+    "editor.foldingStrategy": "indentation",
+    "editor.fontFamily": "Fira Code", // https://github.com/tonsky/FiraCode
+    "editor.fontLigatures": "'ss01', 'cv12', 'cv17', 'ss05', 'ss03', 'cv15', 'CV29', 'cv30', 'ss02', 'cv19', 'cv23', 'cv22', 'cv25', 'cv26', 'cv32', 'cv27', 'ss06', 'ss07'",
+    "editor.fontSize": 14,
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
+    "editor.letterSpacing": 0,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.renderFinalNewline": false,
+    "editor.renderLineHighlight": "all",
+    "editor.renderLineHighlightOnlyWhenFocus": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.roundedSelection": false,
+    "editor.rulers": [78],
+    "editor.scrollBeyondLastColumn": 0,
+    "editor.scrollBeyondLastLine": false,
+    "editor.showFoldingControls": "always",
+    "editor.showUnused": true,
+    "editor.stickyTabStops": true,
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 4,
+    "editor.trimAutoWhitespace": true,
+
+    "explorer.expandSingleFolderWorkspaces": true,
+    "explorer.fileNesting.enabled": false,
+    "explorer.openEditors.sortOrder": "editorOrder",
+    "explorer.sortOrder": "foldersNestsFiles",
+    "explorer.sortOrderLexicographicOptions": "lower",
+    "extensions.autoCheckUpdates": true,
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "extensions.webWorker": "auto",
+
+    "files.associations": {
+        "*.vpy": "python"
+    },
+    "files.autoSave": "off",
+    "files.defaultLanguage": "${activeEditorLanguage}",
+    "files.enableTrash": false,
+    "files.encoding": "utf8",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": true,
+
+    "problems.autoReveal": true,
+    "problems.decorations.enabled": true,
+    "problems.showCurrentInStatus": true,
+    "problems.sortOrder": "severity",
+
+    "references.preferredLocation": "peek",
+
+    "scm.alwaysShowRepositories": true,
+    "scm.defaultViewSortKey": "status",
+
+    "search.followSymlinks": true,
+    "search.showLineNumbers": true,
+    "search.sortOrder": "default",
+
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "telemetry.telemetryLevel": "off",
+
+    "terminal.explorerKind": "integrated",
+    "terminal.external.linuxExec": "qterm",
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\cmd.exe",
+    "terminal.integrated.altClickMovesCursor": false,
+    "terminal.integrated.defaultProfile.windows": "Nu",
+    "terminal.integrated.fontFamily": "Hasklug NF",
+    "terminal.integrated.profiles.windows": {
+        "MSYS2": {
+            "path": "C:\\msys64\\usr\\bin\\bash.exe",
+            "args": ["--login", "-i"],
+            "env": {
+                "MSYSTEM": "MINGW64",
+                "CHERE_INVOKING": "1",
+                "MSYS2_PATH_TYPE": "inherit"
+            },
+            "overrideName": true
+        },
+        "Nu": {
+            "path": "nu",
+            "overrideName": true
+        },
+        "CMD": {
+            "path": "C:\\Windows\\System32\\cmd.exe",
+            "overrideName": true
+        }
+    },
+
+    "update.enableWindowsBackgroundUpdates": true,
+    "update.showReleaseNotes": true,
+    "update.mode": "start",
+
+    "window.autoDetectColorScheme": false,
+
+    "workbench.colorCustomizations": {
+        "[Base16 Dark Shapeshifter]": {
+            "statusBar.background": "#884242",
+            "statusBar.foreground": "#aaaaaa",
+            "statusBar.noFolderBackground": "#aa4242",
+            "statusBar.noFolderForeground": "#dddddd"
+        },
+        "[Tiff Colors]": {
+            "terminal.background": "#100013",
+            "statusBar.background": "#1e0024"
+        }
+    },
+    "workbench.colorTheme": "Tiff Colors",
+    "workbench.startupEditor": "none",
+
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": true,
+    "zenMode.hideActivityBar": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideTabs": false,
+    "zenMode.restore": true,
+    "zenMode.silentNotifications": true,
+
+    // Language and lang server stuff
+    // C#
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+
+    "csharp.unitTestDebuggingOptions": {
+        "type": "coreclr"
+    },
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.useModernNet": true,
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.organizeImportsOnFormat": true,
+
+    // CSS and SASS
+    "[css, scss, sass]": {
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true,
+        "editor.suggest.insertMode": "replace",
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    // CSS-only
+    "css.enabledLanguages": ["html", "css"],
+    "css.format.enable": true,
+    "css.validate": false,
+    "css.lint.idSelector": "ignore",
+    // SASS-only
+    "scss.format.enable": true,
+    "scss.validate": false,
+    "scssLint.languages": ["scss", "css", "sass"],
+    "scss.lint.compatibleVendorPrefixes": "error",
+    "scssLint.showHighlights": true,
+    "scssLint.warningBackgroundColor": "rgba(200, 120, 0, .2)",
+    "scssLint.errorBackgroundColor": "rgba(200, 0, 0, .2)",
+    "scss.lint.idSelector": "ignore",
+
+    // Liquid
+    "liquid.format": true,
+    "liquid.rules": {
+        "ignore": [
+            {
+                "type": "liquid",
+                "begin": "comment",
+                "end": "endcomment"
+            },
+            {
+                "type": "html",
+                "begin": "script",
+                "end": "script"
+            },
+            {
+                "type": "html",
+                "begin": "style",
+                "end": "style"
+            }
+        ],
+        "html": {
+            "correct": false,
+            "force_attribute": false,
+            "braces": false,
+            "preserve": 2,
+            "unformatted": false
+        }
+    },
+
+    // JS
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "breadcrumbs.symbolSortOrder": "name",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+
+    // JSON, with or without comments
+    "[json, jsonc]": {
+        "breadcrumbs.symbolSortOrder": "name",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "json.validate.enable": true,
+    "json.schemaDownload.enable": true,
+    "prettier.arrowParens": "always",
+    "prettier.bracketSpacing": true,
+    "prettier.embeddedLanguageFormatting": "off",
+    "prettier.enable": true,
+    "prettier.endOfLine": "auto",
+    "prettier.htmlWhitespaceSensitivity": "strict",
+    "prettier.printWidth": 120,
+    "prettier.proseWrap": "preserve",
+    "prettier.quoteProps": "consistent",
+    "prettier.semi": true,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "none",
+    "prettier.useEditorConfig": true,
+    "prettier.useTabs": false,
+
+    // PHP
+    "[php]": {
+        "editor.formatOnSave": false
+    },
+    "php.validate.enable": true,
+    "php.suggest.basic": true,
+    "php.validate.run": "onSave",
+
+    // Python <3
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": false,
+    "python.analysis.indexing": true,
+    "python.analysis.useLibraryCodeForTypes": true,
+    "python.experiments.enabled": false,
+    "python.languageServer": "Pylance",
+    "python.linting.enabled": true,
+    "python.linting.ignorePatterns": ["**/site-packages/**/*.py", ".vscode/*.py", "**/*.pyi"],
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Args": [
+        "--docstring-quotes=double",
+        "--filename=*.py,*.vpy",
+        "--inline-quotes=double",
+        "--rst-roles=class,func,ref,py:func,py:class,py:attr"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+
+    // Rust <3
+    "[rust]": {
+        "editor.defaultFormatter": "statiolake.vscode-rustfmt",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "rust-analyzer.cargo.autoreload": true,
+    "rust-analyzer.checkOnSave.enable": true,
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.highlightRelated.breakPoints.enable": true,
+    "rust-analyzer.highlightRelated.exitPoints.enable": true,
+    "rust-analyzer.highlightRelated.references.enable": true,
+    "rust-analyzer.highlightRelated.yieldPoints.enable": true,
+    "rust-analyzer.hover.actions.enable": true,
+    "rust-analyzer.hover.documentation.enable": true,
+    "rust-analyzer.hover.links.enable": true,
+    "rust-analyzer.imports.granularity.enforce": true,
+    "rust-analyzer.imports.granularity.group": "crate",
+    "rust-analyzer.imports.group.enable": true,
+    "rust-analyzer.imports.merge.glob": false,
+    "rust-analyzer.joinLines.removeTrailingComma": true,
+    "rust-analyzer.joinLines.unwrapTrivialBlock": true,
+    "rust-analyzer.restartServerOnConfigChange": true,
+    "rust-analyzer.signatureInfo.detail": "full",
+    "rust-analyzer.signatureInfo.documentation.enable": true,
+    "rust-analyzer.typing.autoClosingAngleBrackets.enable": true,
+    "rust-analyzer.workspace.symbol.search.kind": "all_symbols",
+    "rust-analyzer.workspace.symbol.search.scope": "workspace_and_dependencies",
+
+    // TOML
+    "[toml]": {
+        "editor.defaultFormatter": "serayuzgur.crates",
+        "editor.formatOnSave": true
+    },
+
+    // Extensions
+    // Auto-close tags
+    "auto-close-tag.enableAutoCloseSelfClosingTag": false,
+    "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
+    "auto-close-tag.fullMode": true,
+
+    // Autodocstring because I'm lazy'
+    "autoDocstring.docstringFormat": "sphinx",
+    "autoDocstring.generateDocstringOnEnter": true,
+    "autoDocstring.guessTypes": true,
+    "autoDocstring.logLevel": "None",
+    "autoDocstring.quoteStyle": "\"\"\"",
+    "autoDocstring.startOnNewLine": true,
+
+    // Git stuff
+    "git.allowForcePush": false,
+    "git.allowNoVerifyCommit": false,
+    "git.autofetch": true,
+    "git.autoRepositoryDetection": "openEditors",
+    "git.closeDiffOnOperation": true,
+    "git.confirmSync": false,
+    "git.enableCommitSigning": false,
+    "git.enableSmartCommit": true,
+    "git.fetchOnPull": true,
+    "git.followTagsWhenSync": true,
+    "git.openDiffOnClick": true,
+    "git.promptToSaveFilesBeforeCommit": "staged",
+    "git.pruneOnFetch": true,
+    "git.pullTags": true,
+    "git.repositoryScanMaxDepth": -1,
+    "git.requireGitUserConfig": true,
+    "git.scanRepositories": ["C:\\Users\\Riven\\Projects\\"],
+    "git.terminalAuthentication": true,
+    "git.timeline.date": "committed",
+    "git.timeline.showAuthor": true,
+    "git.useIntegratedAskPass": true,
+    "remoteHub.richNavigation.enabled": true,
+
+    // Discord rich presence
+    "rpc.buttonInactiveUrl": "https://rvsfunc.tae.moe",
+    "rpc.buttonInactiveLabel": "rvsfunc docs",
+    "rpc.detailsDebugging": "",
+    "rpc.detailsEditing": "{git_repo} @ {git_branch}",
+    "rpc.lowerDetailsDebugging": "",
+    "rpc.lowerDetailsEditing": "{workspace} : {file_name}",
+    "rpc.lowerDetailsNoWorkspaceFound": "L{current_line} / {total_lines}",
+    "rpc.prioritizeLanguagesOverExtensions": true,
+    "rpc.showProblems": false
+}
