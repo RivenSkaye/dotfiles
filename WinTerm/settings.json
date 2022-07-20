@@ -138,12 +138,12 @@
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS2 / MSYS bash",
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
-            }
+            },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": true,
                 "name": "Windows PowerShell"
-            },
+            }
         ]
     },
     "schemes":
