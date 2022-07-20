@@ -22,5 +22,5 @@ if [ -f "${HOME}/.bash_aliases" ]; then
     source "${HOME}/.bash_aliases"
 fi
 
-source ~/envvars
-# TODO Add in a line for oh-my-posh
+source ~/.envvars
+source ~/.oh-my-posh.sh
