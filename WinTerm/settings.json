@@ -1,13 +1,15 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [
+    "actions":
+    [
         {
             "command": "paste",
             "keys": "ctrl+v"
         },
         {
-            "command": {
+            "command":
+            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -18,7 +20,8 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command": {
+            "command":
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -29,14 +32,17 @@
     "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-    "profiles": {
-        "defaults": {
+    "defaultProfile": "{ca915522-4e9d-423d-84e4-eed962db2813}",
+    "profiles":
+    {
+        "defaults":
+        {
             "backgroundImage": "desktopWallpaper",
             "backgroundImageAlignment": "topRight",
             "backgroundImageOpacity": 0.29999999999999999,
             "backgroundImageStretchMode": "uniformToFill",
-            "bellStyle": [
+            "bellStyle":
+            [
                 "audible",
                 "window",
                 "taskbar"
@@ -44,7 +50,8 @@
             "colorScheme": "Bright Lights",
             "cursorShape": "vintage",
             "experimental.retroTerminalEffect": false,
-            "font": {
+            "font":
+            {
                 "face": "FiraCode NF",
                 "size": 10,
                 "features": {
@@ -73,13 +80,15 @@
             "scrollbarState": "hidden",
             "useAcrylic": true
         },
-        "list": [
+        "list":
+        [
             {
                 "antialiasingMode": "aliased",
                 "backgroundImage": null,
                 "colorScheme": "Vintage",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "font": {
+                "font":
+                {
                     "face": "UnifontMono",
                     "size": 11
                 },
@@ -90,11 +99,12 @@
             },
             {
                 "colorScheme": "Bright Lights",
-                "commandline": "C:\\rust\\.cargo\\bin\\nu.exe",
+                "commandline": "nu",
                 "guid": "{ca915522-4e9d-423d-84e4-eed962db2813}",
                 "hidden": false,
                 "icon": "https://www.nushell.sh/icon.png",
-                "name": "Nu"
+                "name": "Nu",
+                "startingDirectory": "~"
             },
             {
                 "colorScheme": "Bright Lights",
@@ -123,15 +133,21 @@
             {
                 "colorScheme": "Bright Lights",
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys -shell bash",
-                "guid": "{3c5de6b8-a4a4-4fe5-9d71-97e1b71442ee}",
+                "guid": "{e7f10b3d-75cb-487a-a8e8-8f1bdaf7cf13}",
                 "hidden": false,
                 "icon": "C:/msys64/msys2.ico",
-                "name": "MSYS2 / bash",
+                "name": "MSYS2 / MSYS bash",
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
             }
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": true,
+                "name": "Windows PowerShell"
+            },
         ]
     },
-    "schemes": [
+    "schemes":
+    [
         {
             "background": "#191919",
             "black": "#191919",
