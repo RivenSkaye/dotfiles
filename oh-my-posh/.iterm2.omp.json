@@ -9,7 +9,9 @@
           "foreground": "#fff",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "windows": "\ue62a"
+            "windows": "\ue62a",
+            "linux": "\uf31a",
+            "arch": "\uf303"
           },
           "style": "powerline",
           "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}",
