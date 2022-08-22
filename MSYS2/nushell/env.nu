@@ -2,79 +2,132 @@
 
 # Nu's built-in cd
 def-env nu_cd [pth: string = '.'] {
-    (cd $pth)
+    cd $pth
 }
 
 # Nu's built-in ls
-def-env nu_ls [pth: string = '.'] {
-    (ls $pth)
+def nu_ls [
+    pth: string = '.'
+    -S
+] {
+    let ret = (
+        if $S {
+            ls -a $pth
+        }
+        else {
+            ls -as $pth
+        }
+    )
+    $ret
+}
+
+def lsh [] {
+    ls --help
 }
 
 module dirstuff {
-    def pathconv [dir: string] {
-        # Let cygpath handle my shit for me :kekw:
-        let homed = (
-            if ($dir | str starts-with '~') {
-                let expanded = ((^sh -c "cygpath -m $HOME") | into string | str trim -c "\n")
-                $dir | str replace '~' $expanded | into string | str replace -a '\n' ''
-            } else { $dir }
-        )
-        ((^sh -c $"cygpath -m ($homed)") | into string | str trim -c "\n" )
-    }
-
-    def "nu-complete path" [dir: string] {
-        let d = (
-            if $dir == ""{
-                "./"
+    export def pathconv [dir?: string@"nu-complete path riven"] {
+        let dir = (
+            if $dir == $nothing or $dir == "" {
+                (^pwd | str replace "\n" '')
+            } else if $dir =~ ':/' or $dir =~ ':\\' {
+                $dir
+            } else if ($dir == '/') {
+                "/c/msys64/"
+            } else if (($dir | str starts-with '/') and ((^sh -c $"cygpath -m ($dir | str replace -a ' ' '\ ' -s | str replace -a '\(' '\\(' | str replace -a '\)' '\\)')") | path exists)) {
+                $dir
+            } else if (($dir | str starts-with '/') and ($dir | str ends-with '/') and (($dir | str length) == 3)) {
+                "/c/"
+            } else if (($dir | str starts-with '/') and (($dir | str length) > 2)) {
+                $"/c/msys64($dir)"
             } else {
                 $dir
             }
         )
-        let realdir = (pathconv $d)
-        print $realdir
-        ((^ls -a1 $realdir) | lines | each { |d| $d | str trim })
+        # Let cygpath handle my shit for me :kekw:
+        let homed = (
+            if ($dir | str starts-with '~') {
+                let expanded = ((^sh -c "cygpath -m $HOME") | lines --skip-empty | first)
+                $dir | str replace '~' $expanded | into string | str replace -a '\n' ''
+            } else {
+                $dir
+            }
+        )
+        let ret = (
+            if (($homed | str length) == 2 and ($homed | str starts-with '/')) {
+                $"C:/msys64($homed)"
+            }
+            else {
+                (^sh -c $"cygpath -m ($homed | str replace -a ' ' '\ ' -s | str replace -a '\(' '\\(' | str replace -a '\)' '\\)')") | lines --skip-empty | first
+            }
+        )
+        $ret
     }
 
-    export def magic_ls [dir: string@"nu-complete path"] {
-        let realdir = (pathconv $dir)
+    export def "nu-complete path riven" [dir: string] {
+        let dir = ($dir | str replace "(pathconv|ls|cd)? ?" "" | str replace -a '\' '/' -s)
+        let d = (
+            if ($dir | str starts-with "/") or ($dir | str starts-with "~") {
+                $dir
+            }
+            else {
+                $"./($dir)"
+            }
+        )
+        let realdir = (pathconv $d)
+
+        let basename = ($realdir | path basename)
+        let parent = ($realdir | path dirname)
+        let p = (
+            if ($parent | path exists) {
+                $parent
+            } else {
+                ""
+            }
+        )
+        let ret = (
+            if (($p | str length) > 0) {
+                nu_ls $p
+            } else {
+                nu_ls $p -S
+            }
+        )
+        print $ret
+        $ret | where type == 'dir' and name != '.' and name != '..' and name =~ $basename | each { |d| $d.name | str replace -a '\' '/' -s }
+    }
+
+    export def riv_ls [
+        dir?: string@"nu-complete path riven"   # Optional dir to call ls on
+    ] {
+        let d = ((pathconv $dir) | str replace -a '\ ' ' ' -s | str replace -a '\' '/' -s)
+        let realdir = (pathconv $d)
         ^ls --color=auto -A $"($realdir)"
     }
 
     # Unbreak cd, nushell is hardcoded to expand ~ and / on a per-OS basis
     # Only accepts string inputs, not sure if it assumes tilde and slash to be strings.
     # Blame nu for breakage, not me ❤
-    export def-env magic_cd [
-        dir: string@"nu-complete path" # The directory to `cd` into. If only `cd` were an msys executable...
+    export def-env riv_cd [
+        dir?: string@"nu-complete path riven" # The directory to `cd` into. If only `cd` were an msys executable...
     ] {
-        # Collect the rest args into one string, unescape escaped spaces, convert backslashes to slashes
-        let coll = ($dir | str replace -a '\ ' ' ' -s | str replace -a '\' '/' -s)
-        # Escape spaces afterwards. This should be an unfucked, forward slash separated version of input
-        let d = (
-            if $coll == "" {
-                "."
-            }
-            else {
-                $coll | str replace -a ' ' '\ ' -s
-            }
-        )
-        let realdir = (pathconv $d)
-        cd $realdir
+        let opwd = (pathconv)
+        let d = ((pathconv $dir) | str replace -a '\ ' ' ' -s | str replace -a '\' '/' -s)
+        nu_cd $d
+        let-env OLDPWD = $opwd
     }
 }
 
-use dirstuff [magic_cd, magic_ls]
-alias cd = magic_cd
-alias ls = magic_ls
+use dirstuff [riv_cd, riv_ls, pathconv]
+alias ls = riv_ls
+alias cd = riv_cd
 
 
 ############### MSYS2 replication in nushell. This is pain ###############
 
 # msys2 - /etc/profile
-let WIN_ROOT = "/c/Windows"
 let PathPrepend = [
     '/usr/local/bin', '/usr/bin', '/bin'
 ]
-
 let-env SystemDrive = '/c/'
 let-env SystemRoot = '/c/msys64/'
 
@@ -95,47 +148,130 @@ let PTH = (
         }
     }
 )
-let-env PATH = ($PTH | prepend PathPrepend)
-let-env Path = ($PTH | prepend PathPrepend)
+let-env PATH = ($PTH | prepend ($PathPrepend | each { |pp| pathconv $pp } ))
+let-env Path = $env.PATH
+
 let-env MINGW_MOUNT_POINT = $nothing
 
+# . '/etc/msystem' is actually a long switch-case being sourced
 # Do what /etc/msystem does
 let-env MSYSTEM_PREFIX = $nothing
 let-env MSYSTEM_CARCH = $nothing
 let-env MSYSTEM_CHOST = $nothing
 
 let-env MINGW_PREFIX = $nothing
-let-env MINGW_CARCH = $nothing
+let-env MINGW_PACKAGE_PREFIX = $nothing
 let-env MINGW_CHOST = $nothing
 
 let-env MSYSTEM_PREFIX = (
-    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') { '/usr' }
-    else { $"/($env.MSYSTEM | str downcase)" }
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        '/usr'
+    }
+    else {
+        $"/($env.MSYSTEM | str downcase)"
+    }
 )
 let-env MSYSTEM_CARCH = (
-    if $env.MSYSTEM =~ 'ARM64' { 'aarch64' }
-    else if $env.MSYSTEM =~ '64' { 'x86_64' }
-    else if $env.MSYSTEM =~ '32' { 'i686' }
-    else { $"(^uname -m)" }
+    if ($env.MSYSTEM =~ 'ARM64') {
+        'aarch64'
+    }
+    else if ($env.MSYSTEM =~ '64') {
+        'x86_64'
+    }
+    else if ($env.MSYSTEM =~ '32') {
+        'i686'
+    }
+    else {
+        ((^uname -m) | lines --skip-empty | first)
+    }
 )
 let-env MSYSTEM_CHOST = (
-    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') { $"(^uname -m)-pc-msys" }
-    else { $"($env.MSYSTEM_CARCH)-w64-mingw32" }
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $"(^uname -m)-pc-msys"
+    }
+    else {
+        $"($env.MSYSTEM_CARCH)-w64-mingw32"
+    }
 )
 
-def-env mingwvars [] {
-    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') { return }
-}
-
-let-env MINGW_CHOST = $env.MSYSTEM_CHOST
-let-env MINGW_PREFIX = $env.MSYSTEM_PREFIX
+let-env MINGW_CHOST = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $nothing
+    } else {
+        $env.MSYSTEM_CHOST
+    }
+)
+let-env MINGW_PREFIX = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $nothing
+    } else {
+        $env.MSYSTEM_PREFIX
+    }
+)
 let toolchain = (
     if $env.MSYSTEM =~ 'MINGW' { 'mingw' }
     else if $env.MSYSTEM =~ 'CLANG' { 'clang' }
     else if $env.MSYSTEM =~ 'UCRT' { 'ucrt' }
 )
-let-env MINGW_PACKAGE_PREFIX = $"mingw-w64-($toolchain)-($env.MSYSTEM_CARCH)"
+let-env MINGW_PACKAGE_PREFIX = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $nothing
+    } else {
+        $"mingw-w64-($toolchain)-($env.MSYSTEM_CARCH)"
+    }
+)
 
+# Back to /etc/profile, this is where we set the mount point
+let-env MINGW_MOUNT_POINT = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $nothing
+    } else {
+        $env.MINGW_PREFIX
+    }
+)
+let-env PATH = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $env.PATH
+    } else {
+        $PTH | prepend ($PathPrepend | each { |pp| pathconv $"($env.MINGW_PREFIX)($pp)" } )
+    }
+)
+let-env Path = $env.PATH
+let-env PKG_CONFIG_PATH = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        let ulib = pathconv '/usr/lib/pkgconfig'
+        let share = pathconv '/usr/share/pkgconfig'
+        let lib = pathconv '/lib/pkgconfig'
+        $"($ulib):($share):($lib)"
+    } else {
+        let ulib = pathconv $"($env.MINGW_MOUNT_POINT)/usr/lib/pkgconfig"
+        let share = pathconv $"($env.MINGW_MOUNT_POINT)/usr/share/pkgconfig"
+        $"($ulib):($share)"
+    }
+)
+let-env ACLOCAL_PATH = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        $nothing
+    } else {
+        $"($env.MINGW_MOUNT_POINT)/share/aclocal:/usr/share/aclocal"
+    }
+)
+let-env MANPATH = (
+    if ($env.MSYSTEM !~ 'UCRT' and $env.MSYSTEM !~ 'CLANG' and $env.MSYSTEM !~ 'MINGW') {
+        "/usr/local/man:/usr/share/man:/usr/man:/share/man"
+    } else {
+        $"($env.MINGW_MOUNT_POINT)/local/man:($env.MINGW_MOUNT_POINT)/share/man:/usr/local/man:/usr/share/man:/usr/man:/share/man"
+    }
+)
+let-env CONFIG_SITE = "/etc/config.site"
+
+let-env MAYBE_FIRST_START = false
+let-env SYSCONFDIR = "/etc"
+
+let-env tmp = $env.TMP
+let-env temp = $env.TEMP
+let-env TMP = '/tmp'
+let-env TEMP = '/tmp'
 
 def create_left_prompt [] {
     let path_segment = ($env.PWD)
