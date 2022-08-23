@@ -19,10 +19,9 @@ def nu_ls [
     }
 }
 
-let-env DF = (^df)
-
 # The magic module that replaces stuff in Nu to work with normal MSYS2 usage
 module dirstuff {
+    export env DF { (^df) }
     # Convert paths from Windows to mixed format so both MSYS2 and Nu can
     # work with it reasonably. This drives the path autocompletion
     export def pathconv [
@@ -173,7 +172,7 @@ module dirstuff {
     }
 }
 
-use dirstuff [riv_cd, riv_ls, pathconv]
+use dirstuff [DF, riv_cd, riv_ls, pathconv]
 # Alias the Nu commands
 alias ls = riv_ls
 alias cd = riv_cd
