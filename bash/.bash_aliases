@@ -1,4 +1,4 @@
 alias ls='ls --color=auto -A'
-alias DEL='rm'
 alias rm='rm -f'
+alias DEL='rm'
 alias cls='clear'
