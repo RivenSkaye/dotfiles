@@ -24,4 +24,3 @@ fi
 
 source ~/.envvars
 source ~/.oh-my-posh.sh
-clear
