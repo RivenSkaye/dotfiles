@@ -3,3 +3,10 @@ alias rm='rm -f'
 alias DEL='rm'
 alias cls='clear'
 alias cat='bat'
+if command -v plocate &> /dev/null
+then
+	alias locate='plocate'
+elif command -v mlocate &> /dev/null
+then
+	alias locate='mlocate'
+fi
