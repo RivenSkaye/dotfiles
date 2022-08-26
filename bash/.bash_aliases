@@ -10,3 +10,4 @@ elif command -v mlocate &> /dev/null
 then
 	alias locate='mlocate'
 fi
+alias sl='sl -aFcl && ls'
