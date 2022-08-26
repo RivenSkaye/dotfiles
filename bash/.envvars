@@ -4,7 +4,7 @@
 export HISTSIZE=9999999
 export HISTFILESIZE=9999999
 export HISTCONTROL='ignorespace:ignoredups:erasedups'
-export PROMPT_COMMAND='history -a; history -c; history -r; history -n'
+export PROMPT_COMMAND="history -a ; history -c ; history -r ; $PROMPT_COMMAND"
 
 # Default programs
 export BROWSER='firefox'
