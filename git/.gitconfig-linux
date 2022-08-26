@@ -1,0 +1,19 @@
+# This is Git's per-user configuration file.
+[core]
+    editor = vim
+
+[user]
+# Please adapt and uncomment the following lines:
+	name = Riven Skaye
+	email = riven@tae.moe
+    signingkey = 869F2A63E8F5FDA7
+
+[credential]
+	helper =
+	helper = /usr/share/git-credential-manager-core/git-credential-manager-core
+	provider = github
+	guiPrompt = false
+	credentialStore = gpg
+
+[commit]
+	gpgsign = true
