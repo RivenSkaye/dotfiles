@@ -53,7 +53,8 @@
             "font":
             {
                 "face": "FiraCode NF",
-                "features": {
+                "features":
+                {
                     "CV29": 1,
                     "cv12": 1,
                     "cv14": 1,
@@ -149,6 +150,12 @@
                 "hidden": false,
                 "name": "Arch",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{263eba4c-ca01-5a00-9d8a-13358645b354}",
+                "hidden": false,
+                "name": "Archnix",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -169,7 +176,7 @@
             "cursorColor": "#F34B00",
             "cyan": "#6CBFB5",
             "foreground": "#B3C9D7",
-            "green": "#B7E876",
+            "green": "#679826",
             "name": "Bright Lights",
             "purple": "#BA76E7",
             "red": "#FF355B",
