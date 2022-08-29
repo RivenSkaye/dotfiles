@@ -39,7 +39,7 @@
         {
             "backgroundImage": "desktopWallpaper",
             "backgroundImageAlignment": "topRight",
-            "backgroundImageOpacity": 0.29999999999999999,
+            "backgroundImageOpacity": 0.14999999999999999,
             "backgroundImageStretchMode": "uniformToFill",
             "bellStyle":
             [
@@ -164,22 +164,22 @@
         {
             "background": "#191919",
             "black": "#191919",
-            "blue": "#76D4FF",
-            "brightBlack": "#191919",
+            "blue": "#5FB2D8",
+            "brightBlack": "#393939",
             "brightBlue": "#76D5FF",
             "brightCyan": "#6CBFB5",
             "brightGreen": "#B7E876",
             "brightPurple": "#BA76E7",
             "brightRed": "#FF355B",
-            "brightWhite": "#C2C8D7",
-            "brightYellow": "#FFC251",
+            "brightWhite": "#F2F8F7",
+            "brightYellow": "#F8E268",
             "cursorColor": "#F34B00",
-            "cyan": "#6CBFB5",
+            "cyan": "#4CADA2",
             "foreground": "#B3C9D7",
             "green": "#679826",
             "name": "Bright Lights",
-            "purple": "#BA76E7",
-            "red": "#FF355B",
+            "purple": "#7A35A8",
+            "red": "#CC1B3B",
             "selectionBackground": "#B3C9D7",
             "white": "#C2C8D7",
             "yellow": "#FFC251"
@@ -393,5 +393,6 @@
         }
     ],
     "startOnUserLogin": true,
-    "theme": "dark"
+    "theme": "dark",
+    "useAcrylicInTabRow": true
 }
