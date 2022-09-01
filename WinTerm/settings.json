@@ -4,16 +4,16 @@
     "actions":
     [
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
             "command":
             {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": "find",
@@ -32,11 +32,12 @@
     "alwaysShowTabs": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+    "defaultProfile": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
     "profiles":
     {
         "defaults":
         {
+            "antialiasingMode": "grayscale",
             "backgroundImage": "desktopWallpaper",
             "backgroundImageAlignment": "topRight",
             "backgroundImageOpacity": 0.14999999999999999,
@@ -100,7 +101,7 @@
             },
             {
                 "colorScheme": "Bright Lights",
-                "commandline": "C:\\rust\\.cargo\\bin\\nu.exe",
+                "commandline": "nu",
                 "guid": "{ca915522-4e9d-423d-84e4-eed962db2813}",
                 "hidden": false,
                 "icon": "https://www.nushell.sh/icon.png",
@@ -144,18 +145,6 @@
                 "hidden": false,
                 "name": "Nushell",
                 "source": "nu"
-            },
-            {
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{263eba4c-ca01-5a00-9d8a-13358645b354}",
-                "hidden": false,
-                "name": "Archnix",
-                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
