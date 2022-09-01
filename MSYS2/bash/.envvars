@@ -4,13 +4,16 @@
 export HISTSIZE=9999999
 export HISTFILESIZE=9999999
 export HISTCONTROL='ignorespace:ignoredups:erasedups'
-export PROMPT_COMMAND='history -a; history -c; history -r; history -n'
+export PROMPT_COMMAND="history -a ; history -c ; history -r ; $PROMPT_COMMAND"
 
 # Default programs
 export BROWSER='firefox'
 export EDITOR='vim'
 export VISUAL='code'
 export PAGER='less'
+
+# GPG
+export GPG_TTY=$(tty)
 
 # Default dirs
 export XDG_CONFIG_HOME="$HOME/.config"
