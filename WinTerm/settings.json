@@ -109,7 +109,7 @@
             },
             {
                 "colorScheme": "Bright Lights",
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64 -full-path -shell nu --env-config %APPDATA%/nushell/msys-env.nu",
+                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64 -full-path -shell bash",
                 "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
                 "icon": "C:/msys64/mingw64.ico",
                 "name": "MSYS2 / MINGW64",
@@ -117,7 +117,7 @@
             },
             {
                 "colorScheme": "Bright Lights",
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -clang64 -full-path -shell nu --env-config %APPDATA%/nushell/msys-env.nu",
+                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -clang64 -full-path -shell bash",
                 "guid": "{2d51fdc4-a03b-4efe-81bc-722b7f6f3820}",
                 "icon": "C:\\msys64\\clang64.ico",
                 "name": "MSYS2 / CLANG64",
@@ -125,7 +125,7 @@
             },
             {
                 "colorScheme": "Bright Lights",
-                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys -full-path -shell nu --env-config %APPDATA%/nushell/msys-env.nu",
+                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys -full-path -shell bash",
                 "guid": "{71160544-14d8-4194-af25-d05feeac7233}",
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS2 / MSYS",
@@ -141,10 +141,10 @@
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
             },
             {
-                "guid": "{aab79973-318f-43b6-a9bc-b4096493753f}",
+                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
                 "hidden": false,
-                "name": "Nushell",
-                "source": "nu"
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
