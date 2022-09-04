@@ -105,7 +105,8 @@
                 "guid": "{ca915522-4e9d-423d-84e4-eed962db2813}",
                 "hidden": false,
                 "icon": "https://www.nushell.sh/icon.png",
-                "name": "Nu"
+                "name": "Nu",
+                "startingDirectory": "%USERPROFILE%"
             },
             {
                 "colorScheme": "Bright Lights",
