@@ -59,7 +59,30 @@ let-env NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
+let pth = (
+    if (('PATH' in (env).name) and ('Path' in (env).name)) {
+        ($env.Path | each { |P| $env.PATH | prepend $P })
+    } else if ('PATH' in (env).name) {
+        ($env.PATH)
+    } else {
+        ($env.Path)
+    }
+)
+let-env PATH = $pth
+let-env Path = $pth
+
+let-env BROWSER = 'firefox'
+let-env LANG = 'en_US.UTF-8'
+let-env HOMEDRIVE = (cd / ; $env.PWD | str trim -c "\\")
+cd $env.OLDPWD
+let-env HOME = (cd ~ ; $env.PWD | str trim -c "\\")
+cd $env.OLDPWD
 alias cls = ^clear
-alias dir = ^ls -A --color=auto
+alias DIR = ^ls -A --color=auto
+alias dir = DIR
 alias rm = ^rm -rf
 alias DEL = rm
+alias del = rm
+# Variables can't be resolved until _after_ this runs. So source omp in config.nu
+# oh-my-posh init nu --config ~/.iterm2.omp.json
+history -c
