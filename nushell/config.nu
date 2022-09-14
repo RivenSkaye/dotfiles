@@ -1,6 +1,6 @@
 # Nushell Config File
 
-source ~/.oh-my-posh.nu
+source ~/.config/starship.nu
 
 module completions {
   # Custom completions for external commands (those outside of Nushell)
