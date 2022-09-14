@@ -2,7 +2,10 @@ alias ls='ls --color=auto -A'
 alias rm='rm -f'
 alias DEL='rm'
 alias cls='clear'
-alias cat='bat'
+if command -v bat &> /dev/null
+then
+	alias cat='bat'
+fi
 if command -v plocate &> /dev/null
 then
 	alias locate='plocate'
