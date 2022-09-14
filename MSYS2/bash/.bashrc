@@ -22,6 +22,6 @@ if [ -f "${HOME}/.bash_aliases" ]; then
     source "${HOME}/.bash_aliases"
 fi
 
-source ~/.oh-my-posh.sh
+source ~/.stars.sh
 source ~/.envvars
 cls && neofetch
