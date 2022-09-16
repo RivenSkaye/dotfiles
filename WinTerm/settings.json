@@ -56,7 +56,7 @@
                 "face": "FiraCode NF",
                 "features":
                 {
-                    "CV29": 1,
+                    "cv04": 1,
                     "cv12": 1,
                     "cv14": 1,
                     "cv15": 1,
@@ -67,6 +67,7 @@
                     "cv25": 1,
                     "cv26": 1,
                     "cv27": 1,
+                    "cv29": 1,
                     "cv30": 1,
                     "cv32": 1,
                     "ss01": 1,
@@ -85,19 +86,17 @@
         "list":
         [
             {
-                "antialiasingMode": "aliased",
-                "backgroundImage": null,
-                "colorScheme": "Vintage",
+                "colorScheme": "Bright Lights",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "font":
                 {
-                    "face": "UnifontMono",
-                    "size": 11
+                    "face": "Hasklug NF",
+                    "features": {}
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "intenseTextStyle": "none",
-                "name": "Command Prompt"
+                "name": "Command Prompt",
+                "startingDirectory": "%USERPROFILE%"
             },
             {
                 "colorScheme": "Bright Lights",
@@ -111,6 +110,11 @@
             {
                 "colorScheme": "Bright Lights",
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -mingw64 -full-path -shell bash",
+                "font":
+                {
+                    "face": "Hasklug NF",
+                    "features": {}
+                },
                 "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
                 "icon": "C:/msys64/mingw64.ico",
                 "name": "MSYS2 / MINGW64",
@@ -119,6 +123,11 @@
             {
                 "colorScheme": "Bright Lights",
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -clang64 -full-path -shell bash",
+                "font":
+                {
+                    "face": "Hasklug NF",
+                    "features": {}
+                },
                 "guid": "{2d51fdc4-a03b-4efe-81bc-722b7f6f3820}",
                 "icon": "C:\\msys64\\clang64.ico",
                 "name": "MSYS2 / CLANG64",
@@ -127,6 +136,11 @@
             {
                 "colorScheme": "Bright Lights",
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys -full-path -shell bash",
+                "font":
+                {
+                    "face": "Hasklug NF",
+                    "features": {}
+                },
                 "guid": "{71160544-14d8-4194-af25-d05feeac7233}",
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS2 / MSYS",
@@ -135,6 +149,11 @@
             {
                 "colorScheme": "Bright Lights",
                 "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys -shell bash",
+                "font":
+                {
+                    "face": "Hasklug NF",
+                    "features": {}
+                },
                 "guid": "{3c5de6b8-a4a4-4fe5-9d71-97e1b71442ee}",
                 "hidden": false,
                 "icon": "C:/msys64/msys2.ico",
