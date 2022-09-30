@@ -5,12 +5,12 @@
 
 [user]
 # Please adapt and uncomment the following lines:
-	name = Riven Skaye
-	email = riven@tae.moe
-    	signingkey = 869F2A63E8F5FDA7
+    name = Riven Skaye
+    email = riven@tae.moe
+    signingkey = 96CEBE28
 
 [credential]
-	helper = C:/Git/mingw64/bin/git-credential-manager-core.exe
+    helper = C:/Git/mingw64/bin/git-credential-manager-core.exe
 
 [commit]
-	gpgsign = true
+    gpgsign = true
