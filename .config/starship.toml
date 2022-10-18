@@ -1,0 +1,165 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+right_format = ""
+scan_timeout = 90
+command_timeout = 750
+continuation_prompt = "[\uf101](bright-black) "
+format = """
+$username\
+$hostname\
+[\ue0b0](fg:bright-yellow bg:green)\
+$directory\
+$c\
+$dotnet\
+$haskell\
+$kotlin\
+$lua\
+$nodejs\
+$php\
+$python\
+$ruby\
+$rust\
+$zig\
+$git_branch\
+$git_status\
+[\ue0b0](fg:bright-green bg:bright-black)\
+[\ue0b0](fg:bright-black bg:none)\
+$fill\
+$cmd_duration\
+$fill\
+$time\
+$battery
+$character
+"""
+
+[username]
+style_root = "fg:bright-blue bg:bright-purple bold"
+style_user = "fg:bright-yellow bg:purple bold"
+format = "[\ue0b0 ](fg:purple bg:none inverted)[$user ]($style)[\ue0b0](fg:purple bg:bright-yellow)"
+show_always = true
+
+[hostname]
+style = "bg:bright-yellow fg:bright-black bold"
+format = "[ \uf1fa $hostname$ssh_symbol ]($style)"
+ssh_only = true
+
+[directory]
+style="bg:green fg:bright-blue bold"
+read_only = "\uf8ee"
+format = "[ $path ]($style)[$read_only]($style)[\ue0b0](fg:green bg:bright-green)"
+
+# Programming language hell
+[c]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ufb70"
+
+[dotnet]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\uf81a"
+
+[haskell]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue61f"
+
+[kotlin]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue634"
+
+[lua]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue620"
+
+[nodejs]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\uf898"
+
+[php]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue608"
+
+[python]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue606"
+
+[ruby]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue739"
+
+[rust]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "\ue7a8"
+
+[zig]
+format = "[ $symbol ($version)]($style)[\ue0b0](fg:bright-green bg:green)[\ue0b0](fg:green bg:bright-green)"
+style = "bg:bright-green fg:black bold"
+symbol = "↯"
+
+[git_branch]
+style = "bg:bright-green fg:bright-black bold"
+symbol = "\ue0a0"
+format = "[ on $symbol$branch(:$remote_branch) ]($style)"
+
+[git_status]
+style = "bg:bright-green fg:bright-black bold"
+format = "[\\[$all_status$ahead_behind\\]]($style)"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+format = "[\ue0b3](fg:bright-green bg:none)[$duration]($style)[\ue0b1](fg:bright-green bg:none)"
+style = "bg:bright-green fg:bright-black bold"
+show_milliseconds = true
+min_time = 750
+
+[time]
+style = "bg:purple fg:bright-yellow bold"
+format = "[\ue0b3](fg:purple bg:none)[$time]($style)[\ue0b2](fg:black bg:purple)"
+use_12hr = true
+disabled = false
+time_format = " at %I:%M:%S %p on %d-%m-%Y "
+
+[battery]
+full_symbol = "\uf0e7"
+charging_symbol = "\uf583"
+discharging_symbol = "\uf583"
+unknown_symbol = "\uf60b"
+empty_symbol = "\uf244"
+format = '[$symbol\[$percentage\]](bg:black fg:white bold)'
+
+[[battery.display]]
+threshold = 10
+style = "bright-red bold"
+
+[[battery.display]]
+threshold = 30
+style = "bright-yellow bold"
+charging_symbol = "\uf586"
+discharging_symbol = "\uf57b"
+
+[[battery.display]]
+threshold = 65
+style = "bright-cyan bold"
+charging_symbol = "\uf587"
+discharging_symbol = "\uf57e"
+
+[[battery.display]]
+threshold = 85
+style = "white bold"
+charging_symbol = "\uf58a"
+discharging_symbol = "\uf581"
+
+[[battery.display]]
+threshold = 101
+style = "white bold"
