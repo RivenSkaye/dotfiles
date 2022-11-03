@@ -112,6 +112,7 @@ format = "[ on $symbol$branch(:$remote_branch) ]($style)"
 
 [git_status]
 style = "bg:bright-green fg:bright-black bold"
+up_to_date = "\uf62c"
 format = "[\\[$all_status$ahead_behind\\]]($style)"
 
 [fill]
