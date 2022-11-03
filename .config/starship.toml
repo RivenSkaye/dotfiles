@@ -36,7 +36,7 @@ $character
 [username]
 style_root = "fg:bright-blue bg:bright-purple bold"
 style_user = "fg:bright-yellow bg:purple bold"
-format = "[\ue0b0 ](fg:purple bg:none inverted)[$user ]($style)[\ue0b0](fg:purple bg:bright-yellow)"
+format = "[\ue0b0 ](fg:purple bg:bright-black inverted)[$user ]($style)[\ue0b0](fg:purple bg:bright-yellow)"
 show_always = true
 
 [hostname]
@@ -136,30 +136,30 @@ charging_symbol = "\uf583"
 discharging_symbol = "\uf583"
 unknown_symbol = "\uf60b"
 empty_symbol = "\uf244"
-format = '[$symbol\[$percentage\]](bg:black fg:white bold)'
+format = '[$symbol\[$percentage\]](bg:bright-black fg:white bold)'
 
 [[battery.display]]
 threshold = 10
-style = "bright-red bold"
+style = "fg:bright-red bold bg:bright-black"
 
 [[battery.display]]
 threshold = 30
-style = "bright-yellow bold"
+style = "fg:bright-yellow bold bg:bright-black"
 charging_symbol = "\uf586"
 discharging_symbol = "\uf57b"
 
 [[battery.display]]
 threshold = 65
-style = "bright-cyan bold"
+style = "fg:bright-cyan bold bg:bright-black"
 charging_symbol = "\uf587"
 discharging_symbol = "\uf57e"
 
 [[battery.display]]
 threshold = 85
-style = "white bold"
+style = "fg:white bold bg:bright-black"
 charging_symbol = "\uf58a"
 discharging_symbol = "\uf581"
 
 [[battery.display]]
 threshold = 101
-style = "white bold"
+style = "fg:white bold bg:bright-black"
