@@ -21,3 +21,4 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export RUSTUP_HOME="$HOME/.rust"
 export CARGO_HOME="$RUSTUP_HOME/.cargo"
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
