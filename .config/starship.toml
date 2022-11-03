@@ -118,14 +118,14 @@ format = "[\\[$all_status$ahead_behind\\]]($style)"
 symbol = " "
 
 [cmd_duration]
-format = "[\ue0b3](fg:bright-green bg:none)[$duration]($style)[\ue0b1](fg:bright-green bg:none)"
+format = "[\ue0b3](fg:bright-green bg:bright-black)[$duration]($style)[\ue0b1](fg:bright-green bg:bright-black)"
 style = "bg:bright-green fg:bright-black bold"
 show_milliseconds = true
 min_time = 750
 
 [time]
 style = "bg:purple fg:bright-yellow bold"
-format = "[\ue0b3](fg:purple bg:none)[$time]($style)[\ue0b2](fg:black bg:purple)"
+format = "[\ue0b3](fg:purple bg:bright-black)[$time]($style)[\ue0b2](fg:black bg:purple)"
 use_12hr = true
 disabled = false
 time_format = " at %I:%M:%S %p on %d-%m-%Y "
