@@ -4,7 +4,7 @@
 export HISTSIZE=9999999
 export HISTFILESIZE=9999999
 export HISTCONTROL='ignorespace:ignoredups:erasedups'
-export PROMPT_COMMAND="history -a ; history -c ; history -r ; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a ; history -c ; history -r ; echo -e '\033]0;${USER} @ ${HOSTNAME} -- ${PWD/#$HOME/Home sweet Home}\007'"
 
 # Default programs
 export BROWSER='firefox'
