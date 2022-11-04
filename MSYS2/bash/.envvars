@@ -9,7 +9,7 @@ export PROMPT_COMMAND="history -a ; history -c ; history -r ; echo -e '\033]0;${
 # Default programs
 export BROWSER='firefox'
 export EDITOR='vim'
-export VISUAL='code'
+export VISUAL='codium'
 export PAGER='less'
 
 # GPG

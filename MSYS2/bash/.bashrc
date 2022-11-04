@@ -27,4 +27,4 @@ source ~/.envvars
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
 fi
-cls # && neofetch
+cls && neofetch
