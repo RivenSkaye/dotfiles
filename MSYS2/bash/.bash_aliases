@@ -14,3 +14,4 @@ then
 	alias locate='mlocate'
 fi
 alias sl='sl -aFcl && ls'
+alias code='codium'
