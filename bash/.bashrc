@@ -18,12 +18,20 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
+source ~/.envvars
+
+if [ -d "$CARGO_HOME" ]; then
+    PATH="$PATH:$CARGO_HOME/bin"
+fi
+if [ -d "$HOME/.ghcup" ]; then
+    PATH="$PATH:$HOME/.ghcup/bin"
+fi
 if [ -f "${HOME}/.bash_aliases" ]; then
     source "${HOME}/.bash_aliases"
 fi
-
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
 fi
-source ~/.envvars
 cls && neofetch
+
+PATH="$PATH:$CARGO_HOME/bin:$HOME/.ghcup/bin"
