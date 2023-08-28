@@ -16,6 +16,9 @@
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything
+export USER=$(logname)
+export LOGNAME="$USER"
+
 [[ "$-" != *i* ]] && return
 
 if [ -f "${HOME}/.bash_aliases" ]; then
@@ -23,8 +26,22 @@ if [ -f "${HOME}/.bash_aliases" ]; then
 fi
 
 source ~/.envvars
+PATH="$CARGO_HOME/bin:$PATH"
 
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
 fi
-cls && neofetch
+
+if [[ -d "$HOME/.go/bin" ]]; then
+    PATH="$PATH:$HOME/.go/bin"
+fi
+
+if [[ -d "$HOME/.bin/vim90" ]]; then
+    PATH="$HOME/.bin/vim90:$PATH"
+fi
+
+# Fucking Dutch system locale
+export LANG=en_US.UTF-8
+export LC_CTYPE="en_US.UTF-8"
+
+cls # && neofetch

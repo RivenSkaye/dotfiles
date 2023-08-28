@@ -14,4 +14,10 @@ then
 	alias locate='mlocate'
 fi
 alias sl='sl -aFcl && ls'
-alias code='codium'
+alias code='code'
+
+if command -v mpv.com &> /dev/null
+then
+	alias mpv='mpv.com'
+fi
+alias paru="pacman -Syuu --noconfirm && rustup update"
