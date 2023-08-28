@@ -26,7 +26,10 @@ if [ -f "${HOME}/.bash_aliases" ]; then
 fi
 
 source ~/.envvars
-PATH="$CARGO_HOME/bin:$PATH"
+
+if [[ -d $CARGO_HOME ]]; then
+    PATH="$CARGO_HOME/bin:$PATH"
+fi
 
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
