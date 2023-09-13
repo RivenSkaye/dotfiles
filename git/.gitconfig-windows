@@ -1,17 +1,22 @@
 # This is Git's per-user configuration file.
 [core]
     editor = vim
-    visual = code
-    autocrlf = input
+	visual = code
+	hooksPath = C:/Utils/GitHooks
+	autocrlf = false
+	eol = lf
 
 [user]
-# Please adapt and uncomment the following lines:
-    name = Riven Skaye
-    email = riven@tae.moe
-    signingkey = B1F1ECF5
-
-[credential]
-    helper = C:/Program\\ Files\\ \\(x86\\)/Git\\ Credential\\ Manager/git-credential-manager-core.exe
+[include]
+	path = ~/.defaultgitcfg
 
 [commit]
-    gpgsign = true
+	gpgsign = true
+
+[credential]
+	helper = C:/Program\\ Files\\ \\(x86\\)/Git\\ Credential\\ Manager/git-credential-manager-core.exe
+
+[diff]
+	submodule = log
+[credential "https://gitea.com"]
+	provider = generic

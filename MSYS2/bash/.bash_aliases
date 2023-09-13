@@ -20,4 +20,4 @@ if command -v mpv.com &> /dev/null
 then
 	alias mpv='mpv.com'
 fi
-alias paru="pacman -Syuu --noconfirm && rustup update"
+alias paru="pacman -Syuu --noconfirm && rustup update && cargo install-update -a"

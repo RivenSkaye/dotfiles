@@ -26,10 +26,7 @@ if [ -f "${HOME}/.bash_aliases" ]; then
 fi
 
 source ~/.envvars
-
-if [[ -d $CARGO_HOME ]]; then
-    PATH="$CARGO_HOME/bin:$PATH"
-fi
+PATH="$CARGO_HOME/bin:$PATH"
 
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
@@ -48,3 +45,4 @@ export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
 cls # && neofetch
+PROG=tea source "C:\msys64\home\Martin\.config\tea\autocomplete.sh"

@@ -23,7 +23,7 @@ starship_preexec() {
     # Avoid restarting the timer for commands in the same pipeline
     if [ "$STARSHIP_PREEXEC_READY" = "true" ]; then
         STARSHIP_PREEXEC_READY=false
-        STARSHIP_START_TIME=$('/home/Riven/.rust/.cargo/bin/starship.exe' time)
+        STARSHIP_START_TIME=$('/home/Martin/.rust/.cargo/bin/starship.exe' time)
     fi
 
     : "$PREV_LAST_ARG"
@@ -54,12 +54,12 @@ starship_precmd() {
 
     # Prepare the timer data, if needed.
     if [[ $STARSHIP_START_TIME ]]; then
-        STARSHIP_END_TIME=$('/home/Riven/.rust/.cargo/bin/starship.exe' time)
+        STARSHIP_END_TIME=$('/home/Martin/.rust/.cargo/bin/starship.exe' time)
         STARSHIP_DURATION=$((STARSHIP_END_TIME - STARSHIP_START_TIME))
-        PS1="$('/home/Riven/.rust/.cargo/bin/starship.exe' prompt --terminal-width="$COLUMNS" --status=$STARSHIP_CMD_STATUS --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --jobs="$NUM_JOBS" --cmd-duration=$STARSHIP_DURATION)"
+        PS1="$('/home/Martin/.rust/.cargo/bin/starship.exe' prompt --terminal-width="$COLUMNS" --status=$STARSHIP_CMD_STATUS --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --jobs="$NUM_JOBS" --cmd-duration=$STARSHIP_DURATION)"
         unset STARSHIP_START_TIME
     else
-        PS1="$('/home/Riven/.rust/.cargo/bin/starship.exe' prompt --terminal-width="$COLUMNS" --status=$STARSHIP_CMD_STATUS --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --jobs="$NUM_JOBS")"
+        PS1="$('/home/Martin/.rust/.cargo/bin/starship.exe' prompt --terminal-width="$COLUMNS" --status=$STARSHIP_CMD_STATUS --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --jobs="$NUM_JOBS")"
     fi
     STARSHIP_PREEXEC_READY=true  # Signal that we can safely restart the timer
 }
@@ -103,7 +103,7 @@ fi
 shopt -s checkwinsize
 
 # Set up the start time and STARSHIP_SHELL, which controls shell-specific sequences
-STARSHIP_START_TIME=$('/home/Riven/.rust/.cargo/bin/starship.exe' time)
+STARSHIP_START_TIME=$('/home/Martin/.rust/.cargo/bin/starship.exe' time)
 export STARSHIP_SHELL="bash"
 
 # Set up the session key that will be used to store logs
@@ -112,4 +112,4 @@ STARSHIP_SESSION_KEY="${STARSHIP_SESSION_KEY}0000000000000000" # Pad it to 16+ c
 export STARSHIP_SESSION_KEY=${STARSHIP_SESSION_KEY:0:16}; # Trim to 16-digits if excess.
 
 # Set the continuation prompt
-PS2="$('/home/Riven/.rust/.cargo/bin/starship.exe' prompt --continuation)"
+PS2="$('/home/Martin/.rust/.cargo/bin/starship.exe' prompt --continuation)"
