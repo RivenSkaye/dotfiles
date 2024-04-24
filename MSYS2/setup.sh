@@ -25,7 +25,7 @@ if [[ -d "$HOME/.config_backup" ]]; then
     mv $HOME/.config_backup/* $HOME/.config
 fi
 
-if [[ -d "$HOME/.config/lapce/Lapce-Stable/config" ]]; then
+if [[ -f "$HOME/.config/lapce/Lapce-Stable/config/settings-windows.toml" ]]; then
     old_dir=$(pwd)
     cd "$HOME/.config/lapce/Lapce-Stable/config"
     ln -s settings-windows.toml settings.toml
