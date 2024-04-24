@@ -12,6 +12,11 @@ ln -s ./.stars.sh $HOME/.stars.sh
 cd ..
 ln -s .vimrc $HOME/.vimrc
 
+clink_dir=$(cygpath -ua $APPDATA/../Local/clink)
+rm -f $clink_dir/{flexprompt_config.lua,clink_settings}
+ln -s ./clink/clink_settings $clink_dir/clink_settings
+ln -s ./clink/flexprompt_config.lua $clink_dir/flexprompt_config.lua
+
 cd ../git
 ln -s ./gitconfig-windows $HOME/.gitconfig
 ln -s ./defaultgitcfg $HOME/.defaultgitcfg
