@@ -2,18 +2,16 @@
 [core]
     editor = vim
     visual = code
+    hooksPath = "~/utils/git_hooks"
     autocrlf = false
-	eol = lf
+    eol = lf
 
 [user]
 [include]
-	path = ~/.defaultgitcfg
-
-[user]
-    signingkey = A49AF18BEBE8E70B
+    path = ~/.defaultgitcfg
 
 [commit]
-	gpgsign = true
+    gpgsign = true
 
 [credential]
     helper = /usr/share/git-credential-manager-core/git-credential-manager-core
@@ -22,7 +20,7 @@
     credentialStore = gpg
 
 [diff]
-	submodule = log
+    submodule = log
 
-[credential "https://gitea.com"]
-	provider = generic
+[pull]
+    rebase = true
