@@ -1,0 +1,21 @@
+[terminal]
+    default-profile = "msys"
+    font-family     = "'Hasklug NF', 'Hasklug Nerd Font'"
+    font-size       = 14
+
+[terminal.profiles.msys]
+    args    = ["--login", "-i"]
+    command = "C:\\msys64\\usr\\bin\\bash.exe"
+    env     = {MSYSTEM = "MINGW64", CHERE_INVOKING = "1", MSYS2_PATH_TYPE = "inherit"}
+
+[lapce-rust]
+    serverPath = "rust-analyzer"
+
+[editor]
+    code-lens-font-size = 4
+    font-family         = "Fira Code"
+    font-size           = 14
+
+[core]
+    color-theme = "Black Iris"
+    modal       = false
