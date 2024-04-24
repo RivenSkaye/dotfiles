@@ -1,4 +1,4 @@
-# code: language=lua;
+# -*- mode: ini; -*-
 
 # name: Enable automatic suggestions
 # type: boolean
