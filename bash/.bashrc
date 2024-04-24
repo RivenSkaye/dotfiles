@@ -18,20 +18,27 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-source ~/.envvars
-
-if [ -d "$CARGO_HOME" ]; then
-    PATH="$PATH:$CARGO_HOME/bin"
-fi
-if [ -d "$HOME/.ghcup" ]; then
-    PATH="$PATH:$HOME/.ghcup/bin"
-fi
 if [ -f "${HOME}/.bash_aliases" ]; then
     source "${HOME}/.bash_aliases"
 fi
+
+source ~/.envvars
+PATH="$CARGO_HOME/bin:$PATH"
+
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
 fi
-cls && neofetch
 
-PATH="$PATH:$CARGO_HOME/bin:$HOME/.ghcup/bin"
+if [[ -d "$HOME/.go/bin" ]]; then
+    PATH="$PATH:$HOME/.go/bin"
+fi
+
+if [ -d "$HOME/.ghcup" ]; then
+    PATH="$PATH:$HOME/.ghcup/bin"
+fi
+
+# Fucking Dutch system locale
+export LANG=en_US.UTF-8
+export LC_CTYPE="en_US.UTF-8"
+
+cls && neofetch
