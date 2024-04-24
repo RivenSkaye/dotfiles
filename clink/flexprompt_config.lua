@@ -22,3 +22,5 @@ flexprompt.settings.use_icons = true
 flexprompt.settings.charset = "unicode"
 flexprompt.settings.right_prompt = "{exit}{duration}{time:format=%I:%M %p ~%A~}"
 flexprompt.settings.heads = "pointed"
+
+os.setenv("RUSTUP_TOOLCHAIN", "nightly-x86_64-pc-windows-msvc")
