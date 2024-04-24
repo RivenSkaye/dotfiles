@@ -20,7 +20,7 @@ if [ -f "${HOME}/.bashrc" ] ; then
     source "${HOME}/.bashrc"
 fi
 
-gpg-agent --daemon --allow-preset-passphrase 2>&1 >> /dev/null
+gpg-agent --daemon --allow-preset-passphrase &> /dev/null
 ERR=$?
 
 if [[ $ERR -eq 0 ]] && [[ -f "${HOME}/.gpg_presets" ]]; then
