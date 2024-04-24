@@ -4,13 +4,13 @@
 export HISTSIZE=9999999
 export HISTFILESIZE=9999999
 export HISTCONTROL='ignorespace:ignoredups:erasedups'
-export PROMPT_COMMAND="history -a ; history -c ; history -r ; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a ; history -c ; history -r ; printf '\033]0;${PWD/#$HOME/\~} / $USER @ $HOSTNAME\007'"
 
 # Default programs
 export BROWSER='firefox'
 export EDITOR='vim'
-export VISUAL='codium'
-export PAGER='less'
+export VISUAL='code'
+export PAGER='bat'
 
 # GPG
 export GPG_TTY=$(tty)
@@ -19,5 +19,14 @@ export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export RUSTUP_HOME="$HOME/.rust"
-export CARGO_HOME="$RUSTUP_HOME/.cargo"
+if [[ ! -v RUSTUP_HOME ]]; then
+	export RUSTUP_HOME="$HOME/.rust"
+else
+	export RUSTUP_HOME=`cygpath "$RUSTUP_HOME"`
+fi
+if [[ ! -v CARGO_HOME ]]; then
+	export CARGO_HOME="$RUSTUP_HOME/.cargo"
+else
+	export CARGO_HOME=`cygpath "$CARGO_HOME"`
+fi
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
