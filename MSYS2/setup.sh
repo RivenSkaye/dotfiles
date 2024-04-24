@@ -34,4 +34,10 @@ if [[ -f "$HOME/.config/lapce/Lapce-Stable/config/settings-windows.toml" ]]; the
     old_dir=$(pwd)
     cd "$HOME/.config/lapce/Lapce-Stable/config"
     ln -s settings-windows.toml settings.toml
+    cd $old_dir
 fi
+
+# this assumes I have the GPG keys set up already. If I don't, shame on me!
+git add "$(git rev-parse --absolute-git-dir)"
+git commit -m 'Found new .config entries in $HOME while running setup!'
+git push
