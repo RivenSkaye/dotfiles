@@ -1,5 +1,4 @@
 alias ls='ls --color=auto -A'
-alias rm='rm -f'
 alias DEL='rm'
 alias cls='clear'
 if command -v bat &> /dev/null
@@ -20,4 +19,8 @@ if command -v mpv.com &> /dev/null
 then
 	alias mpv='mpv.com'
 fi
-alias paru="pacman -Syuu --noconfirm && rustup update && cargo install-update -a"
+if command -v helix &> /dev/null
+then
+    alias hx='helix'
+fi
+alias paru="pacman -Syuu --noconfirm && rustup update && PCRE2_SYS_STATIC=1 cargo install-update -a"
