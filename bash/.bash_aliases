@@ -1,6 +1,4 @@
 alias ls='ls --color=auto -A'
-alias rm='rm -f'
-alias DEL='rm'
 alias cls='clear'
 if command -v bat &> /dev/null
 then
@@ -15,3 +13,8 @@ then
 fi
 alias sl='sl -aFcl && ls'
 alias code='codium'
+# Might start using helix more tbh
+if command -v helix &> /dev/null
+then
+    alias hx='helix'
+fi
