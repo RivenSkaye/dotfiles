@@ -3,17 +3,17 @@
 cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/bash" &> /dev/null
 
 rm -f $HOME/.{bash_aliases,bash_profile,bashrc,envvars} # TODO add stars.sh back in
-ln -s ./.bash_aliases $HOME/.bash_aliases
-ln -s ./.bash_profile $HOME/.bash_profile
-ln -s ./.bashrc $HOME/.bashrc
-ln -s ./.envvars $HOME/.envvars
+ln -s "$(pwd)/.bash_aliases" "$HOME/.bash_aliases"
+ln -s "$(pwd)/.bash_profile" "$HOME/.bash_profile"
+ln -s "$(pwd)/.bashrc" "$HOME/.bashrc"
+ln -s "$(pwd)/.envvars" "$HOME/.envvars"
 
 # TODO get the Linux version of stars.sh in this repo
 # ln -s ./.stars.sh $HOME/.stars.sh
 
 cd ../git
-ln -s ./gitconfig-linux $HOME/.gitconfig
-ln -s ./defaultgitcfg $HOME/.defaultgitcfg
+ln -s "$(pwd)/.gitconfig-linux" "$HOME/.gitconfig"
+ln -s "$(pwd)/.defaultgitcfg" "$HOME/.defaultgitcfg"
 
 cd ..
 if [[ -d "$HOME/.config" ]]; then
