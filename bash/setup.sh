@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/bash" &> /dev/null
+cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null
 
 rm -f $HOME/.{bash_aliases,bash_profile,bashrc,envvars} # TODO add stars.sh back in
 ln -s "$(pwd)/.bash_aliases" "$HOME/.bash_aliases"
@@ -19,9 +19,9 @@ cd ..
 if [[ -d "$HOME/.config" ]]; then
     mv $HOME/.config $HOME/.config_backup
 fi
-ln -s ./.config $HOME/.config
+ln -s "$(pwd)/.config" "$HOME/.config"
 if [[ -d "$HOME/.config_backup" ]]; then
-    mv $HOME/.config_backup/* ./.config
+	mv $HOME/.config_backup/* "$(pwd)/.config"
 fi
 
 if [[ -f "$HOME/.config/lapce/Lapce-Stable/config/settings-linux.toml" ]]; then
