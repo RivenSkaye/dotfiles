@@ -23,7 +23,6 @@ if [ -f "${HOME}/.bash_aliases" ]; then
 fi
 
 source ~/.envvars
-PATH="$CARGO_HOME/bin:$PATH"
 
 if [ -f "${HOME}/.stars.sh" ]; then
     source ~/.stars.sh
@@ -31,6 +30,8 @@ fi
 
 if [[ -d "$HOME/.go/bin" ]]; then
     PATH="$PATH:$HOME/.go/bin"
+elif [[ -d "$HOME/go/bin" ]]; then
+    PATH="$PATH:$HOME/go/bin"
 fi
 
 if [ -d "$HOME/.ghcup" ]; then
@@ -41,4 +42,6 @@ fi
 export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
-cls && neofetch
+PATH="$CARGO_HOME/bin:$PATH"
+
+cls # && neofetch
