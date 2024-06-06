@@ -18,6 +18,7 @@
     provider = generic
     guiPrompt = false
     credentialStore = gpg
+    helper = /usr/sbin/git-credential-manager
 
 [diff]
     submodule = log
