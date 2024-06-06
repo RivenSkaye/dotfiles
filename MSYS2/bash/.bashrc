@@ -16,13 +16,16 @@
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything
+
+export LOGNAME="$(logname)"
+
 [[ "$-" != *i* ]] && return
 
 if [ -f "${HOME}/.bash_aliases" ]; then
     source "${HOME}/.bash_aliases"
 fi
 
-source "${HOME}/.envvars"
+source ~/.envvars
 PATH="$CARGO_HOME/bin:$PATH"
 
 if [ -f "${HOME}/.stars.sh" ]; then
