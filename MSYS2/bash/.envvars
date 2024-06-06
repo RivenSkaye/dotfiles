@@ -10,7 +10,7 @@ export PROMPT_COMMAND="history -a ; history -c ; history -r ; printf '\033]0;${P
 export BROWSER='firefox'
 export EDITOR='vim'
 export VISUAL='code'
-export PAGER='less'
+export PAGER='bat'
 
 # GPG
 export GPG_TTY=$(tty)
