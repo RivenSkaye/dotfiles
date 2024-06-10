@@ -45,17 +45,17 @@ scan_timeout = 90
 
 [directory]
     format           = "[ $path ]($style)[$read_only]($style)[\ue0b0](fg:green bg:yellow)[\ue0b0](fg:yellow bg:bright-blue)"
-    home_symbol      = "\uf17a"
+    home_symbol      = "\ueb06"
     read_only        = "\uf8ee"
     style            = "bg:green fg:bright-blue bold"
     use_logical_path = true
     use_os_path_sep  = false
 
 [directory.substitutions]
-    "C:/msys64/home/Martin" = "~"
-    "C:/msys64/home/Riven"  = "~"
-    "C:/msys64/home/martin" = "~"
-    "C:/msys64/home/riven"  = "~"
+    "C:/msys64/home/Martin" = "\ueb06"
+    "C:/msys64/home/Riven"  = "\ueb06"
+    "C:/msys64/home/martin" = "\ueb06"
+    "C:/msys64/home/riven"  = "\ueb06"
 
 # Programming language hell
 [c]
@@ -119,9 +119,14 @@ scan_timeout = 90
     symbol = "\ue0a0"
 
 [git_status]
+    ahead      = "\uf176"
+    behind     = "\uf175"
+    deleted    = "\uef90"
+    diverged   = "\uf09f"
     format     = "[\\[$all_status$ahead_behind\\]]($style)"
+    renamed    = "\uf101"
     style      = "bg:bright-blue fg:bright-black bold"
-    up_to_date = "\uf62c"
+    up_to_date = "\uebb1"
 
 [fill]
     symbol = " "
