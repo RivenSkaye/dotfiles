@@ -9,7 +9,7 @@ ln -s "$(pwd)/.bashrc" "$HOME/.bashrc"
 ln -s "$(pwd)/.envvars" "$HOME/.envvars"
 
 # TODO get the Linux version of stars.sh in this repo
-# ln -s ./.stars.sh $HOME/.stars.sh
+ln -s ./.stars.sh $HOME/.stars.sh
 
 cd ../git
 ln -s "$(pwd)/.gitconfig-linux" "$HOME/.gitconfig"
