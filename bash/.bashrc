@@ -18,10 +18,6 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-if [ -f "${HOME}/.bash_aliases" ]; then
-    source "${HOME}/.bash_aliases"
-fi
-
 source ~/.envvars
 
 if [ -f "${HOME}/.stars.sh" ]; then
@@ -43,5 +39,9 @@ export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
 PATH="$CARGO_HOME/bin:$PATH"
+
+if [ -f "${HOME}/.bash_aliases" ]; then
+    source "${HOME}/.bash_aliases"
+fi
 
 cls # && neofetch
