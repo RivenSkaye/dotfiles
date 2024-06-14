@@ -23,7 +23,7 @@ starship_preexec() {
     # Avoid restarting the timer for commands in the same pipeline
     if [ "${STARSHIP_PREEXEC_READY:-}" = "true" ]; then
         STARSHIP_PREEXEC_READY=false
-        STARSHIP_START_TIME=$(/home/riven/.rust/.cargo/bin/starship time)
+        STARSHIP_START_TIME=$(starship time)
     fi
 
     : "$PREV_LAST_ARG"
@@ -72,15 +72,15 @@ starship_precmd() {
     local -a ARGS=(--terminal-width="${COLUMNS}" --status="${STARSHIP_CMD_STATUS}" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --jobs="${NUM_JOBS}")
     # Prepare the timer data, if needed.
     if [[ -n "${STARSHIP_START_TIME-}" ]]; then
-        STARSHIP_END_TIME=$(/home/riven/.rust/.cargo/bin/starship time)
+        STARSHIP_END_TIME=$(starship time)
         STARSHIP_DURATION=$((STARSHIP_END_TIME - STARSHIP_START_TIME))
         ARGS+=( --cmd-duration="${STARSHIP_DURATION}")
         STARSHIP_START_TIME=""
     fi
-    PS1="$(/home/riven/.rust/.cargo/bin/starship prompt "${ARGS[@]}")"
+    PS1="$(starship prompt "${ARGS[@]}")"
     if [[ ${BLE_ATTACHED-} ]]; then
         local nlns=${PS1//[!$'\n']}
-        bleopt prompt_rps1="$nlns$(/home/riven/.rust/.cargo/bin/starship prompt --right "${ARGS[@]}")"
+        bleopt prompt_rps1="$nlns$(starship prompt --right "${ARGS[@]}")"
     fi
     STARSHIP_PREEXEC_READY=true  # Signal that we can safely restart the timer
 }
@@ -100,7 +100,7 @@ elif [[ -n "${bash_preexec_imported:-}" || -n "${__bp_imported:-}" || -n "${pree
 else
     if [[ -n "${BASH_VERSION-}" ]] && [[ "${BASH_VERSINFO[0]}" -gt 4 || ( "${BASH_VERSINFO[0]}" -eq 4 && "${BASH_VERSINFO[1]}" -ge 4 ) ]]; then
         starship_preexec_ps0() {
-            /home/riven/.rust/.cargo/bin/starship time
+            starship time
         }
         # In order to set STARSHIP_START_TIME use an arithmetic expansion that evaluates to 0
         # To avoid printing anything, use the return value in an ${var:offset:length} substring expansion
@@ -140,7 +140,7 @@ fi
 shopt -s checkwinsize
 
 # Set up the start time and STARSHIP_SHELL, which controls shell-specific sequences
-STARSHIP_START_TIME=$(/home/riven/.rust/.cargo/bin/starship time)
+STARSHIP_START_TIME=$(starship time)
 export STARSHIP_SHELL="bash"
 
 # Set up the session key that will be used to store logs
@@ -149,5 +149,5 @@ STARSHIP_SESSION_KEY="${STARSHIP_SESSION_KEY}0000000000000000" # Pad it to 16+ c
 export STARSHIP_SESSION_KEY=${STARSHIP_SESSION_KEY:0:16}; # Trim to 16-digits if excess.
 
 # Set the continuation prompt
-PS2="$(/home/riven/.rust/.cargo/bin/starship prompt --continuation)"
+PS2="$(starship prompt --continuation)"
 
