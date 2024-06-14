@@ -1,4 +1,5 @@
 alias ls='ls --color=auto -A'
+alias lsc='ls --color=always'
 alias cls='clear'
 if command -v bat &> /dev/null
 then
