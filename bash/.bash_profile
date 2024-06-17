@@ -25,8 +25,10 @@ ERR=$?
 
 if [[ $ERR -eq 0 ]] && [[ -f "${HOME}/.gpg_presets" ]]; then
     source "${HOME}/.gpg_presets"
-    eval $(ssh-agent) &> /dev/null
 fi
+
+eval $(ssh-agent) &> /dev/null
+
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
 #   PATH="${HOME}/bin:${PATH}"
