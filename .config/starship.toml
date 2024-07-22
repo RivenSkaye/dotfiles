@@ -61,12 +61,12 @@ scan_timeout = 90
 [c]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\ufb70"
+    symbol = "\ue61e"
 
 [dotnet]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\uf81a"
+    symbol = "\ue648"
 
 [haskell]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
@@ -86,22 +86,22 @@ scan_timeout = 90
 [nodejs]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\uf898"
+    symbol = "\ued0d"
 
 [php]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\ue608"
+    symbol = "\ued6d"
 
 [python]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\ue606"
+    symbol = "\ue73c"
 
 [ruby]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\ue739"
+    symbol = "\ue23e"
 
 [rust]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
