@@ -19,6 +19,10 @@ if command -v mpv.com &> /dev/null
 then
 	alias mpv='mpv.com'
 fi
+if command -v fastfetch &> /dev/null
+then
+    alias neofetch="fastfetch"
+fi
 if command -v helix &> /dev/null
 then
     alias hx='helix'
