@@ -28,8 +28,11 @@ fi
 source ~/.envvars
 PATH="$CARGO_HOME/bin:$PATH"
 
-if [ -f "${HOME}/.stars.sh" ]; then
-    source ~/.stars.sh
+if command -v starship &> /dev/null
+then
+    if [ -f "${HOME}/.stars.sh" ]; then
+        source ~/.stars.sh
+    fi
 fi
 
 if [[ -d "$HOME/.go/bin" ]]; then
