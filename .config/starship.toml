@@ -6,7 +6,7 @@ continuation_prompt = "[\uf101](bright-black) "
 format = """
 $username\
 $hostname\
-[\ue0b0](fg:bright-yellow bg:green)\
+[\ue0b0](fg:cyan bg:bright-green)\
 $directory\
 $rust\
 $python\
@@ -19,6 +19,7 @@ $kotlin\
 $lua\
 $ruby\
 $zig\
+$golang\
 $git_branch\
 $git_status\
 [\ue0b0](fg:bright-blue bg:bright-yellow)\
@@ -33,21 +34,21 @@ right_format = ""
 scan_timeout = 90
 
 [username]
-    format      = "[\ue0b0 ](fg:bright-black bg:green)[$user ]($style)[\ue0b0](fg:green bg:bright-yellow)"
+    format      = "[\ue0b0 ](fg:bright-black bg:bright-green)[$user ]($style)[\ue0b0](fg:bright-green bg:cyan)"
     show_always = true
-    style_root  = "fg:bright-green bg:bright-purple bold"
-    style_user  = "fg:purple bg:green bold"
+    style_root  = "fg:black bg:bright-red bold"
+    style_user  = "fg:black bg:bright-green bold"
 
 [hostname]
     format   = "[ \uf1fa $hostname$ssh_symbol ]($style)"
     ssh_only = true
-    style    = "bg:bright-yellow fg:bright-black bold"
+    style    = "bg:cyan fg:bright-black bold"
 
 [directory]
-    format           = "[ $path ]($style)[$read_only]($style)[\ue0b0](fg:green bg:yellow)[\ue0b0](fg:yellow bg:bright-blue)"
+    format           = "[ $path ]($style)[$read_only]($style)[\ue0b0](fg:bright-green bg:cyan)[\ue0b0](fg:cyan bg:bright-blue)"
     home_symbol      = "\ueb06 "
     read_only        = "\uf8ee "
-    style            = "bg:green fg:bright-blue bold"
+    style            = "bg:bright-green fg:red bold"
     use_logical_path = true
     use_os_path_sep  = false
 
@@ -67,6 +68,11 @@ scan_timeout = 90
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
     symbol = "\ue648"
+
+[golang]
+    format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
+    style  = "bg:bright-blue fg:black bold"
+    symbol = "\ue65e"
 
 [haskell]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
@@ -132,14 +138,14 @@ scan_timeout = 90
     symbol = " "
 
 [cmd_duration]
-    format            = "[\ue0b3](fg:bright-blue bg:none)[$duration]($style)[\ue0b1](fg:bright-blue bg:none)"
+    format            = "[\ue0b3](fg:bright-blue bg:none)[ $duration ]($style)[\ue0b1](fg:bright-blue bg:none)"
     min_time          = 750
     show_milliseconds = true
-    style             = "bg:bright-blue fg:green bold"
+    style             = "bg:bright-blue fg:bright-black bold"
 
 [time]
     disabled    = false
-    format      = "[\ue0b3](fg:purple bg:none)[$time]($style)[\ue0b2](fg:bright-black bg:purple)"
-    style       = "bg:purple fg:bright-red bold"
+    format      = "[\ue0b3](fg:purple bg:none)[$time]($style)[\ue0b2](fg:bright-black bg:bright-purple)"
+    style       = "bg:bright-purple fg:black bold"
     time_format = " at %I:%M:%S %p on %d-%m-%Y "
     use_12hr    = true
