@@ -11,7 +11,12 @@ ln -s "$(pwd)/.envvars" "$HOME/.envvars"
 # TODO get the Linux version of stars.sh in this repo
 ln -s "$(pwd)/.stars.sh" "$HOME/.stars.sh"
 
-cd ../git
+# This will be useless until keys are copied, but is still nice
+cd ..
+mkdir -p "$HOME/.ssh"
+ln -s "$(pwd)/.ssh/config" "$HOME/.ssh/config"
+
+cd ./git
 ln -s "$(pwd)/.gitconfig-linux" "$HOME/.gitconfig"
 ln -s "$(pwd)/.defaultgitcfg" "$HOME/.defaultgitcfg"
 
@@ -19,8 +24,13 @@ cd ..
 if [[ -d "$HOME/.config" ]]; then
     mv $HOME/.config $HOME/.config_backup
 fi
+
 ln -s "$(pwd)/.config" "$HOME/.config"
 if [[ -d "$HOME/.config_backup" ]]; then
+	if [[ -f "$HOME/.config_backup/.gitignore" ]]
+		cat "$HOME/.config_backup/.gitignore" >> ./.gitignore
+		rm "$HOME/.config_backup/.gitignore"
+	fi
 	mv $HOME/.config_backup/* "$(pwd)/.config"
 fi
 
