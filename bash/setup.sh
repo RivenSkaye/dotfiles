@@ -27,7 +27,7 @@ fi
 
 ln -s "$(pwd)/.config" "$HOME/.config"
 if [[ -d "$HOME/.config_backup" ]]; then
-	if [[ -f "$HOME/.config_backup/.gitignore" ]]
+	if [[ -f "$HOME/.config_backup/.gitignore" ]] then
 		cat "$HOME/.config_backup/.gitignore" >> ./.gitignore
 		rm "$HOME/.config_backup/.gitignore"
 	fi
