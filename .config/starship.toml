@@ -147,5 +147,5 @@ scan_timeout = 90
     disabled    = false
     format      = "[\ue0b3](fg:purple bg:none)[$time]($style)[\ue0b2](fg:bright-black bg:bright-purple)"
     style       = "bg:bright-purple fg:black bold"
-    time_format = " at %I:%M:%S %p on %d-%m-%Y "
+    time_format = " at %I:%M:%S %p "
     use_12hr    = true
