@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+[core]
+    editor = vim
+    visual = code
+    hooksPath = C:/Utils/GitHooks
+    autocrlf = false
+    eol = lf
+
+[user]
+[include]
+    path = ~/.defaultgitcfg
+
+[commit]
+    gpgsign = true
+
+[credential]
+    helper = C:/Users/Martin/.dotnet/tools/git-credential-manager.exe
+    provider = generic
+
+[diff]
+    submodule = log
+
+[pull]
+    rebase = true

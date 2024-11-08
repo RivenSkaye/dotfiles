@@ -1,0 +1,26 @@
+# This is Git's per-user configuration file.
+[core]
+    editor = vim
+    visual = code
+    hooksPath = "~/utils/git_hooks"
+    autocrlf = false
+    eol = lf
+
+[user]
+[include]
+    path = ~/.defaultgitcfg
+
+[commit]
+    gpgsign = true
+
+[credential]
+    provider = generic
+    guiPrompt = false
+    credentialStore = gpg
+    helper = manager
+
+[diff]
+    submodule = log
+
+[pull]
+    rebase = true
