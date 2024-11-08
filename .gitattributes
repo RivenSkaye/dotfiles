@@ -1,2 +1,3 @@
 **/* linguist-detectable
 **/*.json linguist-language=JSON-with-Comments
+**/*.sh linguist-language=bash
