@@ -8,7 +8,11 @@ export PROMPT_COMMAND="history -a ; history -c ; history -r ; printf '\033]0;${P
 
 # Default programs
 export BROWSER='firefox'
-export EDITOR='vim'
+if [[ command -v 2>&1 > /dev/null ]]; then
+    export EDITOR='hx'
+else
+    export EDITOR='vim'
+fi
 export VISUAL='code'
 export PAGER='bat'
 
