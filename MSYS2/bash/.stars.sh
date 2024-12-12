@@ -112,4 +112,4 @@ STARSHIP_SESSION_KEY="${STARSHIP_SESSION_KEY}0000000000000000" # Pad it to 16+ c
 export STARSHIP_SESSION_KEY=${STARSHIP_SESSION_KEY:0:16}; # Trim to 16-digits if excess.
 
 # Set the continuation prompt
-PS2="$('starship prompt --continuation)"
+PS2="$(starship prompt --continuation)"

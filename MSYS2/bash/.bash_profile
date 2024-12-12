@@ -27,13 +27,13 @@ if [[ $ERR -eq 0 ]] && [[ -f "${HOME}/.gpg_presets" ]]; then
     source "${HOME}/.gpg_presets"
 fi
 
-env=~/.ssh/agent.env
+sshenv=~/.ssh/agent.env
 
-agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+agent_load_env () { test -f "$sshenv" && . "$sshenv" >| /dev/null ; }
 
 agent_start () {
     (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; }
+    . "$sshenv" >| /dev/null ; }
 
 agent_load_env
 
@@ -51,7 +51,7 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
     ssh-add $HOME/.ssh/*ed25519 >| /dev/null 2>&1
 fi
 
-unset env
+unset sshenv
 
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
