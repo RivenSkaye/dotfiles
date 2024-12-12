@@ -52,11 +52,11 @@ scan_timeout = 90
     use_logical_path = true
     use_os_path_sep  = false
 
-[directory.substitutions]
-    "C:/msys64/home/Martin" = "\ueb06 "
-    "C:/msys64/home/Riven"  = "\ueb06 "
-    "C:/msys64/home/martin" = "\ueb06 "
-    "C:/msys64/home/riven"  = "\ueb06 "
+    [directory.substitutions]
+        "C:/msys64/home/Martin" = "\ueb06 "
+        "C:/msys64/home/Riven"  = "\ueb06 "
+        "C:/msys64/home/martin" = "\ueb06 "
+        "C:/msys64/home/riven"  = "\ueb06 "
 
 # Programming language hell
 [c]
@@ -92,7 +92,7 @@ scan_timeout = 90
 [nodejs]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
     style  = "bg:bright-blue fg:black bold"
-    symbol = "\ued0d"
+    symbol = "\ue60c"
 
 [php]
     format = "[ $symbol ($version)]($style)[\ue0b0](fg:green bg:bright-blue inverted)[\ue0b0](fg:green bg:bright-blue)"
@@ -119,6 +119,8 @@ scan_timeout = 90
     style  = "bg:bright-blue fg:black bold"
     symbol = "\ue6a9"
 
+# End of programming languages
+
 [git_branch]
     format = "[ on $symbol$branch(:$remote_branch) ]($style)"
     style  = "bg:bright-blue fg:bright-black bold"
@@ -127,7 +129,7 @@ scan_timeout = 90
 [git_status]
     ahead      = "\uf176"
     behind     = "\uf175"
-    deleted    = "\uef90"
+    deleted    = "\uf1f8"
     diverged   = "\uf09f"
     format     = "[\\[$all_status$ahead_behind\\]]($style)"
     renamed    = "\uf101"

@@ -16,6 +16,7 @@ export PAGER='bat'
 export GPG_TTY=$(tty)
 
 # Default dirs
+export XDG_HOME=`cygpath -ma $HOME`
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 

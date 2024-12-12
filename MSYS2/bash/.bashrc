@@ -26,21 +26,25 @@ if [ -f "${HOME}/.bash_aliases" ]; then
 fi
 
 source ~/.envvars
-PATH="$CARGO_HOME/bin:$PATH"
+export PATH="$CARGO_HOME/bin:$PATH"
+
+if [[ -d "$HOME/.go/bin" ]]; then
+    export PATH="$PATH:$HOME/.go/bin"
+fi
+
+if [[ -d "$HOME/.bin/vim90" ]]; then
+    export PATH="$HOME/.bin/vim90:$PATH"
+fi
+
+if [[ -d "$XDG_CONFIG_HOME/bat" ]]; then
+    export BAT_CONFIG_DIR="$XDG_CONFIG_HOME/bat"
+fi
 
 if command -v starship &> /dev/null
 then
     if [ -f "${HOME}/.stars.sh" ]; then
         source ~/.stars.sh
     fi
-fi
-
-if [[ -d "$HOME/.go/bin" ]]; then
-    PATH="$PATH:$HOME/.go/bin"
-fi
-
-if [[ -d "$HOME/.bin/vim90" ]]; then
-    PATH="$HOME/.bin/vim90:$PATH"
 fi
 
 # Fucking Dutch system locale

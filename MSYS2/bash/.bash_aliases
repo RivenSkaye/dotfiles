@@ -1,4 +1,4 @@
-alias ls='ls --color=auto -A'
+alias ls='ls --color=auto -Ap'
 alias DEL='rm'
 alias cls='clear'
 if command -v bat &> /dev/null
@@ -28,3 +28,4 @@ then
     alias hx='helix'
 fi
 alias paru="pacman -Syuu --noconfirm && rustup update && PCRE2_SYS_STATIC=1 cargo install-update -a"
+alias flameshot='"/c/Program Files/Flameshot/bin/flameshot"'

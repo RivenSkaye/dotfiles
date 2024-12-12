@@ -27,6 +27,32 @@ if [[ $ERR -eq 0 ]] && [[ -f "${HOME}/.gpg_presets" ]]; then
     source "${HOME}/.gpg_presets"
 fi
 
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add $HOME/.ssh/*ed25519 >| /dev/null 2>&1
+    MSYS_SOCK=$SSH_AUTH_SOCK;
+    setx SSH_AUTH_SOCK `cygpath -wa $SSH_AUTH_SOCK` >| /dev/null
+    setx SSH_AGENT_PID $SSH_AGENT_PID >| /dev/null
+    export SSH_AUTH_SOCK=$MSYS_SOCK
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add $HOME/.ssh/*ed25519 >| /dev/null 2>&1
+fi
+
+unset env
+
 # Set PATH so it includes user's private bin if it exists
 # if [ -d "${HOME}/bin" ] ; then
 #   PATH="${HOME}/bin:${PATH}"
