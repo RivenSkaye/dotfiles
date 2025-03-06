@@ -32,8 +32,9 @@ sshenv=~/.ssh/agent.env
 agent_load_env () { test -f "$sshenv" && . "$sshenv" >| /dev/null ; }
 
 agent_start () {
-    (umask 077; ssh-agent >| "$env")
-    . "$sshenv" >| /dev/null ; }
+    (umask 077; ssh-agent >| "$sshenv")
+    . "$sshenv" >| /dev/null ;
+}
 
 agent_load_env
 
