@@ -52,4 +52,4 @@ export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
 cls && neofetch
-PROG=tea source "C:\msys64\home\Martin\.config\tea\autocomplete.sh"
+PROG=tea source "`cygpath -ma $HOME/.config/tea/autocomplete.sh`"
