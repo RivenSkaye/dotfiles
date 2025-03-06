@@ -2,5 +2,5 @@
 **lucky_commit**
 Lapce-*/config/lapce.db
 Lapce-*/config/settings.toml
-.gitconfig
 .config/helix/runtime/**
+*/**.dayjobgitcfg
