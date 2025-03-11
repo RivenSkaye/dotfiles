@@ -8,7 +8,8 @@ export PROMPT_COMMAND="history -a ; history -c ; history -r ; printf '\033]0;${P
 
 # Default programs
 export BROWSER='firefox'
-if [[ command -v 2>&1 > /dev/null ]]; then
+if command -v hx &> /dev/null
+then
     export EDITOR='hx'
 else
     export EDITOR='vim'
@@ -29,8 +30,9 @@ else
 	export RUSTUP_HOME="$RUSTUP_HOME"
 fi
 if [[ ! -v CARGO_HOME ]]; then
-	if [[ -f /etc/chimera-release ]]; then
+	if [[ -f /etc/chimera-release || -v $TERMUX_VERSION ]]; then
 		export CARGO_HOME="$HOME/.cargo"
+		source $PREFIX/etc/profile.d/rust-nightly.sh
 	else
 		export CARGO_HOME="$RUSTUP_HOME/.cargo"
 	fi
