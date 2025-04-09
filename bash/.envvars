@@ -14,7 +14,6 @@ then
 else
     export EDITOR='vim'
 fi
-export VISUAL='code'
 export PAGER='bat'
 
 # GPG
