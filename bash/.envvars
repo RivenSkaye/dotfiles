@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Bash history
 export HISTSIZE=9999999
